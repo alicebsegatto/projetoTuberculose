@@ -18,7 +18,7 @@ Os arquivos podem ser acessados pelo link abaixo:
 
 As instruções para reprodução do projeto estão disponíveis em:
 
-- **[GUIA.md](GUIA.md)**
+- **[Guia de execução](Guia.md)**
 
 ## Documentação
 
