@@ -12,13 +12,13 @@ A base utilizada é proveniente do Sistema de Informação de Agravos de Notific
 
 Os arquivos podem ser acessados pelo link abaixo:
 
-**[Acessar dados do projeto](https://drive.google.com/drive/folders/1KsxNo8jNc3Sq7XtT1LmUAJkI80d-khFE?usp=sharing)**
+- **[Acessar dados do projeto](https://drive.google.com/drive/folders/1KsxNo8jNc3Sq7XtT1LmUAJkI80d-khFE?usp=sharing)**
 
 ## Execução
 
 As instruções para reprodução do projeto estão disponíveis em:
 
-[GUIA.md](GUIA.md)
+- **[GUIA.md](GUIA.md)**
 
 ## Documentação
 
