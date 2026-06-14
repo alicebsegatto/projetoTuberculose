@@ -1,0 +1,16 @@
+flask==3.0.0
+scikit-learn
+pandas
+numpy
+scipy
+joblib
+tensorflow
+keras
+torch
+matplotlib
+seaborn
+imbalanced-learn
+jupyter
+notebook
+ipykernel
+openpyxl
