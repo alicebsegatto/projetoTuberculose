@@ -1,29 +1,44 @@
-# Como Executar o Projeto
+# Guia de Execução
 
-## 1. Baixar os dados
+Este documento descreve o processo para reproduzir os experimentos realizados no projeto de predição do abandono do tratamento de tuberculose.
 
-Baixe os arquivos do Google Drive:
+## Pré-requisitos
 
-- treino.csv
-- teste1.csv
-- teste2.csv
+- Python 3.10+
+- Google Colab (recomendado)
+- Google Drive
+- Bibliotecas utilizadas nos notebooks
 
+## 1. Obter os Dados
 
-## 2. Abrir os notebooks
+Faça o download dos conjuntos de dados disponibilizados para o projeto:
 
-O projeto foi desenvolvido utilizando o Google Colab.
+- `treino.csv`
+- `teste1.csv`
+- `teste2.csv`
 
-Faça upload dos notebooks para o Colab ou abra-os diretamente pelo GitHub.
+Os arquivos devem ser armazenados no Google Drive ou em um diretório acessível pelos notebooks.
 
-## 3. Executar a preparação dos dados
+## 2. Executar a Preparação dos Dados
 
-Execute todas as células do notebook:
+Abra e execute todas as células do notebook:
 
 ```text
 Preparacao_Dados.ipynb
 ```
 
-Ao final serão gerados os seguintes arquivos:
+Esta etapa realiza:
+
+- Seleção das variáveis utilizadas pelos modelos;
+- Tratamento de valores ausentes;
+- Correção de inconsistências dos dados;
+- Criação de atributos derivados;
+- Tratamento de outliers;
+- Normalização de variáveis numéricas;
+- Codificação de variáveis categóricas;
+- Construção do pipeline de pré-processamento.
+
+Ao final serão gerados os arquivos:
 
 ```text
 X_train_proc.csv
@@ -37,38 +52,44 @@ y_test2.csv
 preprocessor.pkl
 ```
 
-## 4. Executar o treinamento da Rede Neural
+## 3. Executar o Treinamento da Regressão Logística
 
-Após concluir a preparação dos dados, execute:
-
-```text
-Treinamento_RN.ipynb
-```
-O notebook irá:
-
-- Treinar o modelo de Rede Neural;
-- Avaliar o desempenho nos conjuntos de teste;
-- Gerar métricas de avaliação;
-- Gerar matrizes de confusão;
-- Gerar curvas ROC;
-- Gerar análise de importância das variáveis (Permutation Importance).
-
-## 5. Executar o treinamento da Regressão Logística
-
-Após concluir a preparação dos dados, execute:
+Após a preparação dos dados, execute:
 
 ```text
 Treinamento_RL.ipynb
 ```
 
-O notebook irá:
+O notebook realiza:
 
-- Treinar o modelo de Regressão Logística;
-- Avaliar o desempenho nos conjuntos de teste;
-- Gerar métricas de avaliação;
-- Gerar análise de importância das variáveis.
+- Treinamento do modelo;
+- Avaliação nos conjuntos de teste;
+- Geração das métricas de desempenho;
+- Análise de importância das variáveis;
+- Salvamento dos resultados.
 
-### Observações
+## 4. Executar o Treinamento da Rede Neural
 
-- Os caminhos dos arquivos utilizam o Google Drive e podem precisar ser ajustados conforme o ambiente utilizado.
-- A preparação dos dados deve ser executada antes dos treinamentos.
+Após a preparação dos dados, execute:
+
+```text
+Treinamento_RN.ipynb
+```
+
+O notebook realiza:
+
+- Treinamento da Rede Neural;
+- Avaliação nos conjuntos de teste;
+- Geração das métricas de desempenho;
+- Matrizes de confusão;
+- Curvas ROC;
+- Seleção do threshold de classificação;
+- Análise de importância das variáveis (Permutation Importance);
+- Salvamento dos resultados.
+
+## Observações
+
+- Os notebooks foram desenvolvidos utilizando Google Colab.
+- Os caminhos dos arquivos podem precisar ser ajustados conforme o ambiente utilizado.
+- A etapa de preparação dos dados deve ser executada antes do treinamento dos modelos.
+- Os resultados e gráficos são gerados automaticamente durante a execução dos notebooks.
