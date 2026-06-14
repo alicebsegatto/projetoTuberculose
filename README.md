@@ -36,6 +36,19 @@ As instruções para execução completa estão disponíveis em:
 ## Estrutura do Projeto
 
 ```text
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── models/
+│   │   ├── preprocessor.pkl
+│   │   ├── modelo_RL_rodada2.pkl
+│   │   ├── modelo_RN.keras
+│   │   └── top_features_RN.pkl
+│   └── services/
+│       ├── modelo.py
+│       ├── outlier_clipper.py
+│       └── frequency_encoder.py
+│
 ├── docs/
 │   ├── decisoes_dados/
 │   │   ├── preparacao_dados.md
@@ -53,8 +66,10 @@ As instruções para execução completa estão disponíveis em:
 │   ├── Treinamento_RL.ipynb
 │   └── Treinamento_RN.ipynb
 │
+├── .gitignore
 ├── Guia.md
-└── README.md
+├── README.md
+└── requirements.txt
 ```
 
 ## Documentação
