@@ -277,9 +277,9 @@ Realiza a predição de risco de abandono do tratamento para um paciente.
 #### Exemplo de requisição
 
 ```bash
-curl -X POST http://127.0.0.1:5000/api/prever \
-  -H "Content-Type: application/json" \
-  -d "{\"modelo\":\"rl\",\"TRATAMENTO\":1,\"POP_RUA\":1,\"POP_LIBER\":2,\"POP_IMIG\":2,\"BENEF_GOV\":2,\"AGRAVALCOO\":1,\"AGRAVDROGA\":1,\"AGRAVDOENC\":2,\"AGRAVAIDS\":1,\"AGRAVDIABE\":2,\"HIV\":1,\"FORMA\":1,\"TRAT_SUPER\":2,\"idade_anos\":42,\"ID_MUNIC_A\":355030,\"POP_SAUDE\":2,\"TEST_SENSI\":2,\"BACILOSC_2\":2,\"CS_ESCOL_N\":1,\"CS_SEXO\":\"M\",\"CS_RACA\":1,\"ID_RG_RESI\":1}"
+curl -X POST http://127.0.0.1:5000/api/prever ^
+-H "Content-Type: application/json" ^
+-d "{\"modelo\":\"rl\",\"TRATAMENTO\":1,\"POP_RUA\":1,\"POP_LIBER\":2,\"POP_IMIG\":2,\"BENEF_GOV\":2,\"AGRAVALCOO\":1,\"AGRAVDROGA\":1,\"AGRAVDOENC\":2,\"AGRAVAIDS\":1,\"AGRAVDIABE\":2,\"HIV\":1,\"FORMA\":1,\"TRAT_SUPER\":2,\"idade_anos\":42,\"ID_MUNIC_A\":355030,\"POP_SAUDE\":2,\"TEST_SENSI\":2,\"BACILOSC_2\":2,\"CS_ESCOL_N\":1,\"CS_SEXO\":\"M\",\"CS_RACA\":1,\"ID_RG_RESI\":1}"
 ```
 
 #### Resposta de sucesso
