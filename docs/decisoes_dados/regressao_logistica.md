@@ -30,7 +30,7 @@ Além disso, o modelo serviu como baseline para comparação com abordagens mais
 
 ## Estratégia de Treinamento
 
-Após a divisão dos testes em teste1 e teste2 foram realizadas duas rodadas de treinamento no modelo.
+Após a disponibilização dos conjuntos treino, teste1 e teste2, foram realizadas duas rodadas de treinamento e avaliação do modelo.
 
 ### Rodada 1
 
