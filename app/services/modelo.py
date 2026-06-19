@@ -91,7 +91,7 @@ def _enriquecer_dados(dados: dict) -> dict:
     dados = dados.copy()
 
     binarias = [
-        'POP_RUA', 'POP_LIBER', 'POP_IMIG', 'BENEF_GOV',
+        'POP_RUA', 'POP_LIBER', 'POP_IMIG', 'POP_SAUDE', 'BENEF_GOV',
         'AGRAVALCOO', 'AGRAVDROGA', 'AGRAVDOENC', 'AGRAVAIDS',
         'AGRAVDIABE', 'TRAT_SUPER'
     ]
@@ -172,5 +172,5 @@ def prever(dados: dict, tipo_modelo: str = 'rl') -> dict:
         'probabilidade_abandono': round(prob, 4),
         'threshold_utilizado': threshold,
         'modelo': tipo_modelo,
-        'interpretacao': 'Risco de abandono detectado' if predicao == 1 else 'Sem risco de abandono'
+        'interpretacao': 'Alto risco de abandono' if predicao == 1 else 'Baixo risco de abandono'
     }

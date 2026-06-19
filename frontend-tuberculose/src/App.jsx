@@ -111,10 +111,21 @@ const zonaOptions = [
   { value: 9, label: "Ignorado" },
 ];
 
+const racaOptions = [
+  { value: "", label: "Selecione..." },
+  { value: 1, label: "Branca" },
+  { value: 2, label: "Preta" },
+  { value: 3, label: "Amarela" },
+  { value: 4, label: "Parda" },
+  { value: 5, label: "Indígena" },
+  { value: 9, label: "Ignorado" },
+];
+
 function App() {
   const [resultado, setResultado] = useState(null);
 
   const [formData, setFormData] = useState({
+    nome_paciente: "",
     tp_entrada: "",
     tp_pop_rua: "",
     tp_pop_liberdade: "",
@@ -131,11 +142,13 @@ function App() {
     idade: "",
     cep: "",
     nome_municipio: "",
+    id_municipio:"",
     tp_pop_saude: "",
     tp_sensibilidade: "",
     st_baciloscopia_2_mes: "",
     escolaridade: "",
     sexo: "",
+    raca:"",
     zona: "",
   });
 
@@ -167,6 +180,7 @@ function App() {
       ...prev,
       cep,
       nome_municipio: data.localidade,
+      id_municipio: data.ibge,
     }));
   } catch (error) {
     console.error(error);
@@ -188,28 +202,55 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      // DESCOMENTE QUANDO A API EXISTIR
+    const dados = {
+    modelo: "rn",
 
-      /*
+    TRATAMENTO: Number(formData.tp_entrada),
+    POP_RUA: Number(formData.tp_pop_rua),
+    POP_LIBER: Number(formData.tp_pop_liberdade),
+    POP_IMIG: Number(formData.tp_pop_imigrante),
+    POP_SAUDE: Number(formData.tp_pop_saude),
+    BENEF_GOV: Number(formData.tp_benef_gov),
+
+    AGRAVALCOO: Number(formData.st_agravo_alcolismo),
+    AGRAVDROGA: Number(formData.st_agravo_drogas),
+    AGRAVDOENC: Number(formData.st_agravo_mental),
+    AGRAVAIDS: Number(formData.st_agravo_aids),
+    AGRAVDIABE: Number(formData.st_agravo_diabete),
+
+    HIV: Number(formData.tp_hiv),
+    FORMA: Number(formData.tp_forma),
+    TRAT_SUPER: Number(formData.tp_tratamento_acompanhamento),
+
+    idade_anos: Number(formData.idade),
+    ID_MUNIC_A: Number(formData.id_municipio),
+    ID_RG_RESI: Number(formData.zona),
+
+    TEST_SENSI: Number(formData.tp_sensibilidade),
+    BACILOSC_2: Number(formData.st_baciloscopia_2_mes),
+    CS_ESCOL_N: Number(formData.escolaridade),
+    CS_SEXO: formData.sexo,
+    CS_RACA: Number(formData.raca),
+  };
+
+    try {
       const response = await fetch(
-        "http://localhost:5000/prever",
+        "http://localhost:5000/api/prever",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(dados),
         }
       );
 
       const data = await response.json();
 
       setResultado(data.probabilidade);
-      */
+      
 
-      // Mock temporário
-      setResultado("37%");
+      setResultado(data);
     } catch (error) {
       console.error(error);
       alert("Erro ao consultar API");
@@ -241,40 +282,75 @@ const formularioCompleto = Object.values(formData).every(
   (valor) => valor !== ""
 );
 
-  return (
-    <div className="container">
-      <h1>Predição de Abandono do Tratamento da Tuberculose</h1>
+return (
+  <div className="container">
+    <h1>Predição de Abandono do Tratamento da Tuberculose</h1>
 
-      <form onSubmit={handleSubmit}>
-                <div className="field">
-          <label>Idade</label>
+    <p className="subtitulo">
+      Sistema de apoio à decisão para estimar o risco de abandono do tratamento
+      de tuberculose com base em informações clínicas, sociais e demográficas
+      do paciente.
+    </p>
 
-          <input
-            name="idade"
-            type="number"
-            min="0"
-            max="120"
-            value={formData.idade}
-            onChange={handleChange}
-            onKeyDown={(e) => {
-              if (e.key === "-" || e.key === "e") {
-                e.preventDefault();
-              }
-            }}
-          />
-        </div>
-        {renderSelect("sexo", "Sexo", sexoOptions)}
-{renderSelect("tp_entrada", "Tipo de Entrada", tpEntradaOptions)}
+    <form onSubmit={handleSubmit}>
+
+      <div className="field">
+        <label>Nome do paciente</label>
+
+        <input
+          name="nome_paciente"
+          type="text"
+          value={formData.nome_paciente}
+          onChange={handleChange}
+          placeholder="Digite o nome do paciente"
+        />
+      </div>
+
+      <div className="field">
+        <label>Idade</label>
+
+        <input
+          name="idade"
+          type="number"
+          min="0"
+          max="120"
+          value={formData.idade}
+          onChange={handleChange}
+          onKeyDown={(e) => {
+            if (e.key === "-" || e.key === "e") {
+              e.preventDefault();
+            }
+          }}
+        />
+      </div>
+
+{renderSelect(
+  "sexo", 
+  "Sexo", 
+  sexoOptions
+)}
+
+{renderSelect(
+  "raca",
+  "Raça/Cor",
+  racaOptions
+)}
+
+{renderSelect(
+  "tp_entrada", 
+  "Tipo de entrada no tratamento", 
+  tpEntradaOptions
+  )}
 
 {renderSelect(
   "tp_pop_rua",
-  "População em Situação de Rua",
+  "Situação de rua",
   simNaoIgnoradoOptions
 )}
 
 {renderSelect(
   "tp_pop_liberdade",
-  "Privado de Liberdade",
+  "Privado de liberdade",
   simNaoIgnoradoOptions
 )}
 
@@ -286,19 +362,19 @@ const formularioCompleto = Object.values(formData).every(
 
 {renderSelect(
   "tp_benef_gov",
-  "Beneficiário de Programa Governamental",
+  "Benefício governamental",
   simNaoIgnoradoOptions
 )}
 
 {renderSelect(
   "st_agravo_alcolismo",
-  "Alcoolismo",
+  "Histórico de alcoolismo",
   simNaoIgnoradoOptions
 )}
 
 {renderSelect(
   "st_agravo_drogas",
-  "Uso de Drogas",
+  "Histórico de uso de drogas",
   simNaoIgnoradoOptions
 )}
 
@@ -310,39 +386,42 @@ const formularioCompleto = Object.values(formData).every(
 
 {renderSelect(
   "st_agravo_aids",
-  "AIDS",
+  "Diagnóstico de AIDS",
   simNaoIgnoradoOptions
 )}
 
 {renderSelect(
   "st_agravo_diabete",
-  "Diabetes",
+  "Diagnóstico de diabetes",
   simNaoIgnoradoOptions
 )}
 
-{renderSelect("tp_hiv", "HIV", tpHivOptions)}
+{renderSelect(
+  "tp_hiv", 
+  "Diagnóstico de HIV", 
+  tpHivOptions)}
 
 {renderSelect(
   "tp_forma",
-  "Forma Clínica",
+  "Forma clínica da tuberculose",
   tpFormaOptions
 )}
 
 {renderSelect(
   "tp_tratamento_acompanhamento",
-  "Tratamento Acompanhado",
+  "Tratamento supervisionado",
   simNaoIgnoradoOptions
 )}
 
 {renderSelect(
   "tp_pop_saude",
-  "Profissional da Saúde",
+  "Profissional de saúde",
   simNaoIgnoradoOptions
 )}
 
 {renderSelect(
   "tp_sensibilidade",
-  "Sensibilidade",
+  "Teste de sensibilidade",
   tpSensibilidadeOptions
 )}
 
@@ -379,7 +458,7 @@ const formularioCompleto = Object.values(formData).every(
 </div>
 
 <div className="field">
-  <label>Nome do Município</label>
+  <label>Município</label>
 
   <input
     type="text"
@@ -399,13 +478,32 @@ const formularioCompleto = Object.values(formData).every(
 
        </form>
 
-      {resultado && (
-        <div className="resultado">
-          <h2>Probabilidade de abandono:</h2>
-          <p>{resultado}</p>
-        </div>
-      )}
-    </div>
+{resultado && (
+  <div className="resultado">
+    <h2>Resultado da análise</h2>
+
+    <p>
+      Probabilidade de abandono:{" "}
+      <strong>
+        {(resultado.probabilidade_abandono * 100).toFixed(2)}%
+      </strong>
+    </p>
+
+    <div
+      className={
+        resultado.probabilidade_abandono >= 0.7
+          ? "risco risco-alto"
+          : resultado.probabilidade_abandono >= 0.4
+          ? "risco risco-moderado"
+          : "risco risco-baixo"
+      }
+    ></div>
+    <p className="interpretacao">
+      {resultado.interpretacao}
+    </p>
+  </div>
+)}
+</div>
   );
 }
 
