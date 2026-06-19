@@ -32,6 +32,7 @@ Os arquivos podem ser acessados pelo link abaixo:
 As instruções para execução completa estão disponíveis em:
 
 - **[Guia de execução](Guia.md)**
+- Para o frontend, ler o README na pasta 'frontend-tuberculose'
 
 ## Estrutura do Projeto
 
