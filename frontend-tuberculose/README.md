@@ -1,4 +1,4 @@
-Tecnologias Utilizadas
+# Tecnologias Utilizadas
 
 React
 Vite
