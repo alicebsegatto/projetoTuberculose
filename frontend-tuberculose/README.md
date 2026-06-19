@@ -1,16 +1,43 @@
-# React + Vite
+Tecnologias Utilizadas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React
+Vite
+JavaScript
+CSS3
+API ViaCEP (consulta automática de município através do CEP)
+API de Predição (Flask + Machine Learning)
 
-Currently, two official plugins are available:
+# Funcionalidades
+Formulário completo com todas as variáveis utilizadas pelo modelo preditivo.
+Validação de preenchimento obrigatório dos campos.
+Consulta automática de CEP.
+Preenchimento automático do município.
+Validação de CEP válido.
+Bloqueio do botão "Confirmar" até que todos os campos estejam preenchidos corretamente.
+Integração com API de predição.
+Exibição da probabilidade de abandono do tratamento.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
+# Instalação
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Clone o repositório:
 
-## Expanding the ESLint configuration
+git clone <url-do-repositorio>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Acesse a pasta do frontend:
+
+cd frontend-tuberculose
+
+Instale as dependências:
+
+npm install
+
+Execute o projeto:
+
+npm run dev
+
+O sistema estará disponível em:
+
+http://localhost:5173
+
+script-eslint`](https://typescript-eslint.io) in your project.
