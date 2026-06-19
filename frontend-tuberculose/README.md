@@ -39,4 +39,3 @@
 
    http://localhost:5173
 
-script-eslint`](https://typescript-eslint.io) in your project.
