@@ -61,6 +61,26 @@ As instruções para execução completa estão disponíveis em:
 │       ├── TUBEN_FICHA.pdf
 │       └── TUBEN_INSTRUCIONAL.pdf
 │
+├── frontend-tuberculose/
+│   ├── public/
+│   │   ├── favicon.svg
+│   │   └── icons.svg
+│   │
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   │
+│   ├── .gitignore
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── vite.config.js
+│   └── README.md
+│
 ├── notebooks/
 │   ├── Preparacao_Dados.ipynb
 │   ├── Treinamento_RL.ipynb
