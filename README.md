@@ -2,13 +2,13 @@
 
 Projeto de Machine Learning voltado à predição do abandono do tratamento de tuberculose a partir de dados do Sistema de Informação de Agravos de Notificação (SINAN).
 
-O trabalho explora a utilização de modelos preditivos para identificar pacientes com maior risco de interrupção do tratamento, contribuindo para estratégias de acompanhamento e apoio à tomada de decisão em saúde pública.
+O projeto utiliza modelos preditivos para identificar pacientes com maior risco de interrupção do tratamento, contribuindo para estratégias de acompanhamento e apoio à tomada de decisão em saúde pública.
 
 ## Contexto
 
-O abandono do tratamento é um dos principais desafios no controle da tuberculose. Pacientes que interrompem o acompanhamento apresentam maior risco de agravamento da doença, transmissão para outras pessoas e desenvolvimento de resistência aos medicamentos.
+O abandono do tratamento é um dos principais desafios no controle da tuberculose. Pacientes que interrompem o acompanhamento apresentam maior risco de agravamento da doença, transmissão da doença e desenvolvimento de resistência aos medicamentos.
 
-Nesse contexto, a identificação precoce de pacientes com maior probabilidade de abandono pode auxiliar profissionais da saúde na priorização de monitoramento, intervenções e ações preventivas.
+Nesse contexto, a identificação precoce de pacientes com maior probabilidade de abandono pode auxiliar profissionais da saúde na priorização do monitoramento, na realização de intervenções e na implementação de ações preventivas.
 
 ## Destaques do Projeto
 
