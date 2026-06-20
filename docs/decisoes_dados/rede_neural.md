@@ -126,7 +126,7 @@ Após a definição do threshold final de 0,40, o modelo apresentou os seguintes
 
 | Conjunto | Acurácia | Precisão | Recall | F1-Score | ROC-AUC |
 |-----------|----------|----------|----------|----------|----------|
-| Teste 1 | 0.6307 | 0.5462 | 0.9386 | 0.6906 | 0.8032 |
-| Teste 2 | 0.7623 | 0.7707 | 0.9361 | 0.8454 | 0.7806 |
+| Teste 1 | 0.6371 | 0.5522 | 0.9170 | 0.6893 | 0.8050 |
+| Teste 2 | 0.7480 | 0.7452 | 0.9680 | 0.8421 | 0.7774 |
 
-Os resultados demonstram que o modelo foi capaz de identificar mais de 93% dos pacientes que abandonaram o tratamento em ambos os conjuntos de teste, atingindo o principal objetivo definido para o projeto.
+Os resultados demonstram que o modelo foi eficaz na identificação de pacientes com risco de abandono, alcançando recall superior a 91% em ambos os conjuntos de teste. Dessa forma, o principal objetivo do projeto foi atingido, com boa capacidade de detecção dos casos de abandono.

@@ -144,10 +144,9 @@ Essas abordagens contribuem para a transparência do modelo e auxiliam na compre
 Os resultados demonstram que a Regressão Logística apresentou elevada capacidade de identificação de pacientes com risco de abandono do tratamento, alcançando Recall superior a 98% com o threshold adotado de 0,40.
 
 
-| Rodada | Threshold | Acurácia | Precisão | Recall | F1-Score | ROC-AUC |
-|----------|----------|----------|----------|----------|----------|----------|
-| Teste1 | 0.40 | 47,4% | 45,5% | 99,3% | 0,6236 | 0,7594 |
-| Teste1 | 0.50 | 60,1% | 52,6% | 91,7% | 0,6684 | 0,7594 |
-| Teste2 | 0.40 | 69,7% | 70,1% | 98,2% | 0,8183 | 0,6811 |
-| Teste2 | 0.50 | 72,7% | 73,5% | 95,0% | 0,8287 | 0,6811 |
-
+| Rodada | Threshold | Acurácia | Precisão | Recall | F1 | ROC-AUC |
+|---------|---------:|---------:|---------:|---------:|---------:|---------:|
+| Rodada 1 - Teste1 | 0.40 | 48.5% | 46.0% | 99.6% | 0.6294 | 0.7676 |
+| Rodada 2 - Teste2 | 0.40 | 69.9% | 70.3% | 98.2% | 0.8190 | 0.6812 |
+| Rodada 1 - Teste1 | 0.50 | 61.8% | 53.8% | 91.3% | 0.6774 | 0.7676 |
+| Rodada 2 - Teste2 | 0.50 | 73.4% | 74.2% | 94.5% | 0.8313 | 0.6812 |

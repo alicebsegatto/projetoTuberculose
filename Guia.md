@@ -161,6 +161,51 @@ A API ficará disponível em:
 ```text
 http://127.0.0.1:5000
 ```
+### Endpoints Disponíveis
+
+#### `GET /`
+
+Endpoint utilizado para verificar se a API está em funcionamento.
+
+**Exemplo:**
+
+```text
+http://127.0.0.1:5000/
+```
+
+---
+
+#### `POST /api/prever`
+
+Endpoint responsável por realizar a predição da probabilidade de abandono do tratamento de tuberculose.
+
+**Content-Type:** `application/json`
+
+A requisição deve conter as informações clínicas, sociais e demográficas do paciente. A API aplica automaticamente o pipeline de pré-processamento e retorna a probabilidade estimada de abandono do tratamento.
+
+**Resposta de sucesso:**
+
+```json
+{
+  "predicao": 1,
+  "probabilidade_abandono": 0.7234,
+  "threshold_utilizado": 0.4,
+  "modelo": "rl",
+  "interpretacao": "Alto risco"
+}
+```
+
+**Campos retornados:**
+
+| Campo | Descrição |
+|---------|---------|
+| `predicao` | Resultado da classificação realizada pelo modelo |
+| `probabilidade_abandono` | Probabilidade estimada de abandono do tratamento |
+| `threshold_utilizado` | Limiar de classificação utilizado pelo modelo |
+| `modelo` | Modelo utilizado na predição (`rl` ou `rn`) |
+| `interpretacao` | Classificação textual do risco |
+
+**Observação:** As variáveis `score_vulnerabilidade`, `qtd_comorbidades` e `faixa_etaria` são calculadas automaticamente pela API e não precisam ser enviadas pelo usuário.
 
 ## 6. Executar a Aplicação Web
 
