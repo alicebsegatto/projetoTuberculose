@@ -284,12 +284,10 @@ const formularioCompleto = Object.values(formData).every(
 
 return (
   <div className="container">
-    <h1>Predição de Abandono do Tratamento da Tuberculose</h1>
+    <h1>Sistema de Predição de Abandono do Tratamento da Tuberculose</h1>
 
     <p className="subtitulo">
-      Sistema de apoio à decisão para estimar o risco de abandono do tratamento
-      de tuberculose com base em informações clínicas, sociais e demográficas
-      do paciente.
+     Ferramenta de apoio à decisão para estimar o risco de abandono com base em informações clínicas, sociais e demográficas do paciente.
     </p>
 
     <form onSubmit={handleSubmit}>
@@ -480,7 +478,7 @@ return (
 
 {resultado && (
   <div className="resultado">
-    <h2>Resultado da análise</h2>
+    <h2>Resultado da predição</h2>
 
     <p>
       Probabilidade de abandono:{" "}
@@ -490,18 +488,17 @@ return (
     </p>
 
     <div
-      className={
-        resultado.probabilidade_abandono >= 0.7
-          ? "risco risco-alto"
-          : resultado.probabilidade_abandono >= 0.4
-          ? "risco risco-moderado"
-          : "risco risco-baixo"
-      }
-    ></div>
-    <p className="interpretacao">
-      {resultado.interpretacao}
-    </p>
+  className={
+    resultado.probabilidade_abandono >= 0.65
+      ? "risco risco-alto"
+      : resultado.probabilidade_abandono >= 0.40
+      ? "risco risco-moderado"
+      : "risco risco-baixo"
+  }
+>
+  {resultado.interpretacao}
   </div>
+</div>
 )}
 </div>
   );

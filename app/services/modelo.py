@@ -167,10 +167,18 @@ def prever(dados: dict, tipo_modelo: str = 'rl') -> dict:
     else:
         raise ValueError(f"Tipo de modelo inválido: '{tipo_modelo}'. Use 'rl' ou 'rn'.")
 
+    if prob < 0.40:
+        interpretacao = "Risco baixo"
+    elif prob < 0.65:
+        interpretacao = "Risco moderado"
+    else:
+        interpretacao = "Risco alto"
+
+
     return {
         'predicao': predicao,
         'probabilidade_abandono': round(prob, 4),
         'threshold_utilizado': threshold,
         'modelo': tipo_modelo,
-        'interpretacao': 'Alto risco de abandono' if predicao == 1 else 'Baixo risco de abandono'
-    }
+        'interpretacao': interpretacao
+    } 
